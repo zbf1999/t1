@@ -1,0 +1,39 @@
+
+spring:
+  application:
+    name: zhaoWang
+  profiles:
+    active: dev
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+  session:
+    store-type: redis
+    timeout: 2592000
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userinfo
+    username: root
+    password: 121388
+  data:
+    redis:
+      database: 1
+      host: localhost
+      port: 6379
+      timeout: 5000
+server:
+  port: 7890
+  servlet:
+    session:
+      cookie:
+        max-age: 2592000
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
